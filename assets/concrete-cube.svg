@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="250" viewBox="0 0 320 250" fill="none">
+  <defs>
+    <linearGradient id="top" x1="105" y1="35" x2="219" y2="119" gradientUnits="userSpaceOnUse"><stop stop-color="#E2E1D9"/><stop offset="1" stop-color="#C7C9C0"/></linearGradient>
+    <linearGradient id="left" x1="70" y1="100" x2="166" y2="213" gradientUnits="userSpaceOnUse"><stop stop-color="#B8BBB1"/><stop offset="1" stop-color="#9CA395"/></linearGradient>
+    <linearGradient id="right" x1="167" y1="110" x2="249" y2="180" gradientUnits="userSpaceOnUse"><stop stop-color="#9A9F93"/><stop offset="1" stop-color="#7E8A7A"/></linearGradient>
+    <filter id="grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".7" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".17"/></feComponentTransfer><feBlend in="SourceGraphic" mode="multiply"/></filter>
+    <filter id="shadow" x="-40%" y="-100%" width="180%" height="300%"><feGaussianBlur stdDeviation="7"/></filter>
+  </defs>
+  <ellipse cx="167" cy="222" rx="91" ry="13" fill="#536349" opacity=".16" filter="url(#shadow)"/>
+  <g filter="url(#grain)" stroke-linejoin="round">
+    <path d="M70 73 160 27 250 73 160 120Z" fill="url(#top)"/>
+    <path d="M70 73 160 120V221L70 173Z" fill="url(#left)"/>
+    <path d="m160 120 90-47v100l-90 48Z" fill="url(#right)"/>
+  </g>
+  <path d="m70 73 90 47 90-47M160 120v101" stroke="#F9F9F0" stroke-opacity=".28" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="m70 73 90-46 90 46v100l-90 48-90-48Z" stroke="#6C7766" stroke-opacity=".1"/>
+</svg>

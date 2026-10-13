@@ -1,0 +1,162 @@
+/* Fluid layout and controls for phones, tablets and resizable desktop windows. */
+.container{width:calc(100% - clamp(32px,7vw,96px))}
+body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+.hero-copy,.hero-visual,.section-heading>div,.field,.quality-content,.quality-intro,.fleet-copy,.faq-list{min-width:0}
+.header-calc .header-calc-full,.header-calc .header-calc-short{font-size:inherit;line-height:inherit}
+.header-calc-short,.menu-toggle,.mobile-quote{display:none}
+.hero h1{font-size:clamp(36px,4.5vw,63px);white-space:normal}
+.section-heading h2{font-size:clamp(28px,3.2vw,40px)}
+.tag{white-space:normal}
+.quality-table{table-layout:fixed}
+.quality-table th:first-child{width:20%}.quality-table th:nth-child(2){width:20%}
+.quote-row>div{min-width:0;overflow-wrap:anywhere}
+.header-inner{height:calc(96px + env(safe-area-inset-top));padding-top:env(safe-area-inset-top)}
+
+@media(max-width:1100px){
+  html{scroll-padding-top:calc(92px + env(safe-area-inset-top))}
+  .header-inner{height:calc(76px + env(safe-area-inset-top));gap:14px}
+  .header nav{display:none;position:absolute;top:100%;left:0;right:0;background:#fcfcf8;border-bottom:1px solid var(--line);box-shadow:0 12px 22px #20342b0c;padding:14px max(16px,env(safe-area-inset-right));gap:6px;max-height:calc(100dvh - 76px);overflow:auto}
+  .header.menu-open nav{display:grid;grid-template-columns:1fr 1fr}
+  .header nav a{display:flex;align-items:center;min-height:48px;padding:12px 16px;font-size:14px;border-radius:8px}
+  .header nav a:hover{background:var(--mint)}
+  .header .brand .brand-logo{width:220px;height:auto}
+  .header-calc{margin-left:auto}
+  .menu-toggle{display:grid;place-items:center;min-width:44px;height:44px;border-radius:8px;background:var(--mint);color:var(--green);flex-shrink:0}
+  .menu-toggle[aria-expanded=true]{background:var(--green);color:#fff}
+  .hero{gap:26px}
+}
+
+@media(max-width:1000px){
+  body{padding-bottom:calc(100px + env(safe-area-inset-bottom))}
+  .calculator-layout{grid-template-columns:minmax(0,1fr);gap:24px}
+  .quote-card{position:static;max-width:none;padding:28px}
+  .quote-card>h3 br{display:none}
+  .quote-row{font-size:14px}.quote-row span{font-size:12px}.quote-row strong{font-size:15px}
+  .quote-total strong{font-size:clamp(30px,5vw,42px)}
+  .quote-notice,.quote-disclaimer{font-size:12px}
+  .form-section{padding:28px}
+  .field label{font-size:14px;line-height:1.5}
+  .field input,.field select{font-size:16px;height:52px;padding:13px 12px}
+  .stepper{height:52px}.stepper input{height:50px}.stepper button{min-width:48px;padding:0}
+  .inline-link{display:inline-flex;align-items:center;min-height:44px;font-size:12px;border-bottom:0;margin-top:2px}
+  .grade-hint,.form-section>.small{font-size:13px}
+  .check-label{min-height:68px;padding:16px;gap:12px}
+  .check-label>span:first-of-type{font-size:15px}.check-label small{font-size:12px;line-height:1.6}
+  input[type=checkbox]{width:22px;height:22px;margin:0}
+  .delivery-toggle button{min-height:48px;font-size:14px;line-height:1.4;padding:12px 10px}
+  .address-note,.origin,.route-status,.yandex-distance p,.form-section #delivery-fields>.small:last-child{font-size:12px}
+  .address-row .button-sm,#search-address{font-size:13px;height:52px;padding:12px 18px}
+  .map-caption a{display:inline-flex;align-items:center;min-height:44px;font-size:13px;text-decoration:none}
+  .map-caption{margin:4px 0 12px}
+  .print-button,.tariff-details summary{min-height:44px;font-size:13px}
+  .tariff-details p,.mini-tariff{font-size:12px}
+  .mini-tariff td,.mini-tariff th{padding:9px 3px}
+  .quote-chips>span,.quote-location{font-size:12px}
+  .form-error{font-size:13px}
+  .mobile-quote{display:flex;align-items:center;justify-content:space-between;gap:12px;position:fixed;z-index:1250;left:0;right:0;bottom:0;padding:12px max(16px,env(safe-area-inset-right)) calc(12px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));background:#fcfcf8f7;backdrop-filter:blur(15px);border-top:1px solid #d5e0ce;box-shadow:0 -8px 22px #20342b08}
+  .mobile-quote>div{min-width:0}
+  #mobile-quote-label{display:block;font-size:11px;line-height:1.45;color:var(--muted);max-width:230px}
+  #mobile-quote-total{display:block;font-size:23px;line-height:1.35;letter-spacing:-.04em;overflow-wrap:anywhere}
+  .mobile-quote .button{font-size:13px;min-height:48px;padding:12px 16px;flex-shrink:0}
+  body:has(input:focus,select:focus,dialog[open]) .mobile-quote{display:none}
+  .toast{bottom:calc(106px + env(safe-area-inset-bottom));font-size:13px}
+}
+
+@media(max-width:720px){
+  html{scroll-padding-top:calc(84px + env(safe-area-inset-top))}
+  body{font-size:16px}
+  .header-inner{height:calc(68px + env(safe-area-inset-top));gap:10px}
+  .header .brand .brand-logo{width:clamp(142px,42vw,190px)}
+  .header-calc .header-calc-full{display:none}.header-calc .header-calc-short{display:inline}
+  .header .header-calc{font-size:13px;min-height:44px;padding:12px;gap:9px;white-space:nowrap}
+  .header-calc>span[aria-hidden]{display:none}
+  .header nav{max-height:calc(100dvh - 68px)}
+  .header.menu-open nav{grid-template-columns:1fr}
+  .hero{padding-top:28px;padding-bottom:32px;gap:24px}
+  .hero h1{font-size:clamp(34px,8.9vw,54px)}
+  .hero-description{font-size:16px;line-height:1.75;margin:20px 0 24px}
+  .hero-actions{gap:14px;align-items:stretch}
+  .hero-actions .button{min-height:52px;font-size:14px;padding:16px 20px}
+  .hero-actions .text-link{min-height:44px;font-size:13px}
+  .hero-note{font-size:12px;line-height:1.6;margin-top:16px}
+  .hero-visual{height:auto;aspect-ratio:1.18}
+  .hero .eyebrow{font-size:10px;line-height:1.6}
+  .image-label{max-width:calc(100% - 32px);font-size:9px;line-height:1.5;padding:7px 10px}
+  .hero-price{left:16px;right:16px;bottom:16px;padding:14px}
+  .hero-price strong{font-size:29px}.hero-price small{font-size:10px}
+  .process{gap:18px;padding:24px 0}.process>div{align-items:flex-start;gap:16px}
+  .process span{font-size:14px}.process b{font-size:12px;padding-top:3px}
+  .process small{display:block;margin:3px 0 0;font-size:12px}
+  .section{padding-top:44px;padding-bottom:44px}
+  .section-heading h2,.quality-intro h2,.faq-section h2{font-size:clamp(28px,7vw,36px)}
+  .section-heading p{font-size:14px}
+  .section-heading .tag{font-size:11px}
+  .tabs{gap:0}.tabs button{min-height:48px;font-size:13px;padding:12px 10px}
+  .tabs span{font-size:10px}
+  .concrete-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .concrete-card{padding:24px}.card-top h3{font-size:40px}
+  .concrete-model{height:150px}
+  .concrete-card p{font-size:13px;line-height:1.65;margin:0 0 20px}
+  .concrete-card .card-purpose{font-size:13px;line-height:1.7;min-height:0;margin:18px 0 0}
+  .card-purpose b{font-size:10px}.card-action{font-size:12px}
+  .round-button{width:44px;height:44px}.class-tag{font-size:11px}
+  .card-bottom strong{font-size:30px}.card-bottom small{font-size:11px}
+  .catalog-note{font-size:12px}
+  .material-card{padding:26px}.material-card p{font-size:14px}
+  .material-card h3{font-size:25px;max-width:75%}
+  .material-card .text-link{font-size:14px;min-height:44px}
+  .material-icon{font-size:65px;right:18px;top:24px}.rebar-icon{font-size:85px}
+  .calculator-section{padding:44px 0}
+  .form-section{padding:24px 20px}.form-section h3{font-size:20px;margin-bottom:20px}
+  .field-grid{grid-template-columns:minmax(0,1fr);gap:16px}
+  .addon-fields{padding:0 14px 18px}
+  .address-row{flex-direction:column;gap:10px}
+  .address-row input{flex:auto}
+  .address-row .button-sm,#search-address,.manual-distance .address-row .button{width:100%;font-size:14px;height:48px;padding:12px 18px}
+  .route-status{line-height:1.7;padding:12px}
+  #map{height:clamp(340px,55svh,440px)}
+  .quote-card{padding:24px 20px}
+  .quote-row{gap:10px}.quote-total>span{font-size:13px}
+  .quote-card>h3{font-size:27px}.quote-card .button{font-size:14px;min-height:52px}
+  .quality-section,.faq-section{gap:26px}
+  .quality-intro p,.faq-list p{font-size:14px}
+  .quality-table th{font-size:11px}.quality-table td,.quality-table td:nth-child(2){font-size:12px}
+  .quality-table td:last-child{font-size:12px;line-height:1.6}
+  .quality-notes{grid-template-columns:1fr}
+  .quality-notes>div:last-child{grid-column:auto}
+  .quality-notes b{font-size:14px}.quality-notes p,.quality-content>.small{font-size:12px}
+  .faq-list summary{font-size:14px;min-height:52px}
+  .fleet-copy p{font-size:15px}.fleet-copy .text-link{font-size:14px;min-height:44px}
+  .fleet-placeholder p{font-size:12px}.fleet-photo figcaption{font-size:13px}
+  .closing{padding:28px}.closing .button{width:100%;font-size:14px;min-height:52px}
+  .closing h2{font-size:clamp(30px,8vw,38px)}
+  .footer>span{font-size:12px}
+  dialog{padding:24px 20px;max-height:calc(100dvh - 32px);overflow:auto}
+  .dialog-top h2{font-size:26px}.icon-button{width:44px;height:44px;flex-shrink:0}
+  dialog .muted,.reserve{font-size:14px}.dimensions{grid-template-columns:1fr;gap:16px}
+  .dimensions .field label{font-size:14px}.reserve{min-height:44px}
+}
+
+@media(max-width:600px){
+  .concrete-grid{grid-template-columns:minmax(0,1fr)}
+  .card-top h3{font-size:44px}
+  .concrete-model{height:156px}
+  .hero-actions .button{width:100%;justify-content:space-between}
+}
+
+@media(max-width:360px){
+  .header-inner{gap:8px}.header .brand .brand-logo{width:140px}
+  .header .header-calc{padding:12px 10px;font-size:12px}
+  .hero h1{font-size:32px}.tabs button{font-size:12px;padding:12px 8px}
+  .tabs span{display:none}
+  .concrete-card{padding:22px}
+  .delivery-toggle button{font-size:12px}
+  .check-label{padding:14px;gap:10px}.check-label>span:first-of-type{font-size:14px}
+  #mobile-quote-total{font-size:21px}.mobile-quote .button{font-size:12px;padding:12px}
+}
+
+@media(hover:none){
+  .concrete-card:hover,.button:hover{transform:none}
+  .concrete-card:hover .concrete-model img{transform:none}
+}
+@media print{body{padding-bottom:0}.mobile-quote,.menu-toggle{display:none!important}}
